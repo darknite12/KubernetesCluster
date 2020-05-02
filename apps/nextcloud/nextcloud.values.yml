@@ -260,7 +260,7 @@ service:
 ##
 persistence:
   # Nextcloud Data (/var/www/html)
-  enabled: false
+  enabled: true
   annotations: {}
   ## nextcloud data Persistent Volume Storage Class
   ## If defined, storageClassName: <storageClass>
@@ -274,10 +274,10 @@ persistence:
   ## A manually managed Persistent Volume and Claim
   ## Requires persistence.enabled: true
   ## If defined, PVC must be created manually before volume will be bound
-  # existingClaim:
+  existingClaim: "nextcloud-ssd"
 
-  accessMode: ReadWriteOnce
-  size: 8Gi
+  accessMode: ReadWriteMany
+  size: 100Gi
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
