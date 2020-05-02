@@ -35,15 +35,16 @@ else
     sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
     sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
-    kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
-    kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/k8s-manifests/kube-flannel-rbac.yml
-
-
     curl https://docs.projectcalico.org/manifests/calico.yaml -O
     kubectl apply -f calico.yaml
-
+	
+	# install Kubernetes Dashboard
     kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml
+	
+	#install helm
+	sudo snap install helm --classic
+	helm repo add bitnami https://charts.bitnami.com/bitnami
+	helm repo add stable https://kubernetes-charts.storage.googleapis.com
 
-    kubeadm init --apiserver-advertise-address=192.168.1.100 --pod-network-cidr=192.168.0.0/16
 
 fi
