@@ -221,7 +221,7 @@ master:
     ##
     enabled: true
     # Enable persistence using an existing PVC
-    # existingClaim:
+    existingClaim: "mariadb-ssd"
     # Subdirectory of the volume to mount
     # subPath:
     mountPath: /bitnami/mariadb
@@ -239,10 +239,10 @@ master:
     ## Persistent Volume Access Mode
     ##
     accessModes:
-      - ReadWriteOnce
+      - ReadWriteMany
     ## Persistent Volume size
     ##
-    size: 8Gi
+    size: 10Gi
 
   ## Add extra init Containers (evaluated as a templ
   ##

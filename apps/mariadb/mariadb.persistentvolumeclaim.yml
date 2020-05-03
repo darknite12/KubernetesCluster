@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  namespace: "nextcloud"
+  namespace: "mariadb"
   name: "mariadb-ssd"
 spec:
   storageClassName: "manual"
