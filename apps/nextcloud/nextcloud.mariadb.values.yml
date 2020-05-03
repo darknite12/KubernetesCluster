@@ -199,7 +199,6 @@ mariadb:
   ##
   persistence:
     enabled: true
-    existingClaim: "mariadb-ssd"
     accessMode: ReadWriteMany
     size: 10Gi
 
