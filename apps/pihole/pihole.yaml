@@ -115,8 +115,6 @@ spec:
           mountPath: "/etc/pihole"
         - name: pihole-local-dnsmasq-volume
           mountPath: "/etc/dnsmasq.d"
-        - name: pihole-local-etc-resolvconf-volume
-          mountPath: "/etc/resolv.conf"
       volumes:
       - name: pihole-local-etc-volume
         persistentVolumeClaim:
