@@ -84,45 +84,6 @@ spec:
     matchLabels:
       directory: dnsmasq.d
 ---
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: pihole-local-etc-resolvconf-volume
-  labels:
-    file: resolv.conf
-spec:
-  capacity:
-    storage: 2Ki
-  accessModes:
-  - ReadWriteMany
-  persistentVolumeReclaimPolicy: Delete
-  storageClassName: local
-  hostPath:
-    path: /etc/pihole/resolv.conf
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: kubernetes.io/hostname
-          operator: In
-          values:
-          - kubenode1
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: pihole-local-etc-resolvconf-claim
-spec:
-  storageClassName: local
-  accessModes:
-  - ReadWriteMany
-  resources:
-    requests:
-      storage: 2Ki
-  selector:
-    matchLabels:
-      file: resolv.conf
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
