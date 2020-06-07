@@ -1,0 +1,16 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  namespace: pihole
+  name: pihole-ingress
+spec:
+  rules:
+  - host: kubenode1
+    http:
+      paths:
+        - path: /
+          backend:
+            serviceName: pihole-tcp
+            servicePort: 8000
+---
