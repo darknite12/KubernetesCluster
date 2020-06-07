@@ -164,7 +164,7 @@ regex: {}
   # - (^|\.)facebook\.com$
 
 
-webHttp: "80"
+webHttp: "8000"
 webHttps: "443"
 hostNetwork: "false"
 privileged: "false"
