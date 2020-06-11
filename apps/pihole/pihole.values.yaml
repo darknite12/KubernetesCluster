@@ -10,22 +10,22 @@ image:
   pullPolicy: IfNotPresent
 
 serviceTCP:
-  type: NodePort
-  externalTrafficPolicy: Local
-  loadBalancerIP: ""
+  type: LoadBalancer
+  #externalTrafficPolicy: Local
+  #loadBalancerIP: ""
     # a fixed LoadBalancer IP
-  annotations: {}
+  annotations:
     # metallb.universe.tf/address-pool: network-services
-    # metallb.universe.tf/allow-shared-ip: pihole-svc
+    metallb.universe.tf/allow-shared-ip: pihole-svc
 
 serviceUDP:
-  type: NodePort
-  externalTrafficPolicy: Local
-  loadBalancerIP: ""
+  type: LoadBalancer
+#  externalTrafficPolicy: Local
+#  loadBalancerIP: ""
     # a fixed LoadBalancer IP
   annotations: {}
     # metallb.universe.tf/address-pool: network-services
-    # metallb.universe.tf/allow-shared-ip: pihole-svc
+    metallb.universe.tf/allow-shared-ip: pihole-svc
 
 virtualHost: pi.hole
 
