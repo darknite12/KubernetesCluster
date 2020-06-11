@@ -6,7 +6,6 @@ metadata:
     app: pihole
   name: pihole-tcp
 spec:
-  externalTrafficPolicy: Local
   ports:
   - name: pihole-http
     port: 8000
