@@ -1,0 +1,10 @@
+configInline:
+  address-pools:
+  - addresses:
+    - 192.168.1.60-192.168.1.80
+    name: default
+    protocol: layer2
+  - addresses:
+    - 192.168.1.245-192.168.1.254
+    name: network-services
+    protocol: layer2

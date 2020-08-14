@@ -12,7 +12,7 @@ image:
 serviceTCP:
   type: LoadBalancer
   #externalTrafficPolicy: Local
-  #loadBalancerIP: ""
+  loadBalancerIP: 192.168.1.252
     # a fixed LoadBalancer IP
   annotations:
     # metallb.universe.tf/address-pool: network-services
@@ -21,23 +21,23 @@ serviceTCP:
 serviceUDP:
   type: LoadBalancer
 #  externalTrafficPolicy: Local
-#  loadBalancerIP: ""
+  loadBalancerIP: 192.168.1.252
     # a fixed LoadBalancer IP
-  annotations: {}
+  annotations:
     # metallb.universe.tf/address-pool: network-services
     metallb.universe.tf/allow-shared-ip: pihole-svc
 
 virtualHost: pi.hole
 
 ingress:
-  enabled: true
-  annotations:
-    kubernetes.io/ingress.class: nginx
+  enabled: false
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   path: /
   hosts:
     # virtualHost (default value is pi.hole) will be appended to the hosts
-    - pihole.192.168.1.101.nip.io
+    - kubenode1
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
@@ -164,7 +164,7 @@ regex: {}
   # - (^|\.)facebook\.com$
 
 
-webHttp: "8000"
-webHttps: "443"
+webHttp: "80"
+webHttps: "43"
 hostNetwork: "false"
 privileged: "false"
