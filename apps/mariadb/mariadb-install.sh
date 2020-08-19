@@ -11,7 +11,7 @@ kubectl get pv
 kubectl apply -f mariadb.persistentvolumeclaim.yaml
 kubectl get pvc -n mariadb
 
-helm install mariadb --namespace mariadb bitnami/mariadb --set volumePermissions.enabled=true --set rootUser.password=zjcu53Hw  --set db.user=flara --set db.password=zjcu53Hw --set replication.password=zjcu53Hw --set master.persistence.existingClaim=mariadb-master --set service.type=LoadBalancer  --set slave.replicas=0 -f values-production.yaml
+helm install mariadb --namespace mariadb bitnami/mariadb --set volumePermissions.enabled=true --set rootUser.password=PASSWORD  --set db.user=flara --set db.password=PASSWORD --set replication.password=PASSWORD --set master.persistence.existingClaim=mariadb-master --set service.type=LoadBalancer  --set slave.replicas=0 -f values-production.yaml
 
 kubectl get pods -n mariadb
 
