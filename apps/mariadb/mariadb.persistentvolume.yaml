@@ -17,7 +17,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: "data-my-release-mariadb-slave-0"
+  name: "data-mariadb-slave-0"
   labels:
     type: "local"
 spec:
@@ -25,10 +25,10 @@ spec:
   capacity:
     storage: "10Gi"
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   claimRef:
-    namespace: default
-    name: "data-my-release-mariadb-slave-0"
+    namespace: "mariadb"
+    name: "data-mariadb-slave-0"
   hostPath:
     path: "/mnt/mariadb/slave"
 ---

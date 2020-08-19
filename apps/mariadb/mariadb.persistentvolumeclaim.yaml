@@ -12,16 +12,3 @@ spec:
     requests:
       storage: "10Gi"
 ---
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  namespace: "mariadb"
-  name: "data-mariadb-mariadb-slave-0"
-spec:
-  storageClassName: "manual"
-  accessModes:
-    - ReadWriteMany
-  resources:
-    requests:
-      storage: "10Gi"
----
