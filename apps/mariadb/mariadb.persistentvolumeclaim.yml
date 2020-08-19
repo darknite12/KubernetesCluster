@@ -16,7 +16,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   namespace: "mariadb"
-  name: "mariadb-slave"
+  name: "data-mariadb-mariadb-slave-0"
 spec:
   storageClassName: "manual"
   accessModes:
