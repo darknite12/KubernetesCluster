@@ -11,7 +11,11 @@ kubectl get pv
 kubectl apply -f mariadb-galera.persistentvolumeclaim.yaml
 kubectl get pvc -n mariadb-galera
 
-helm install mariadb-galera --namespace mariadb-galera bitnami/mariadb-galera --set rootUser.password=PASSWORD --set galera.mariabackup.password=PASSWORD --set db.user=flara --set db.password=PASSWORD --set persistence.existingClaim=mariadb-galera-master --set service.type=LoadBalancer --set service.loadBalancerIP=192.168.1.251 -f values-production.yaml -f values-production.yaml
+# setup directories in nodes
+sudo mkdir /mnt/mariadb-galera/master
+sudo chown -R 1001:1001 /mnt/mariadb-galera/master/
+
+helm install mariadb-galera --namespace mariadb-galera bitnami/mariadb-galera --set replicaCount=1 --set rootUser.password=PASSWORD --set galera.mariabackup.password=PASSWORD --set db.user=flara --set db.password=PASSWORD --set persistence.existingClaim=mariadb-galera-master --set service.type=LoadBalancer --set service.loadBalancerIP=192.168.1.251 -f values-production.yaml -f values-production.yaml
 
 kubectl get pods -n mariadb-galera
 
